@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YouTube Music Player</title>
+  <title>YouTube Music Search</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="player-container">
-    <h1>🎶 My YouTube Music Player</h1>
-    <div id="player"></div>
-    <div class="controls">
-      <button onclick="playVideo()">▶️ Play</button>
-      <button onclick="pauseVideo()">⏸️ Pause</button>
-      <button onclick="stopVideo()">⏹️ Stop</button>
-    </div>
+    <h1>🎶 YouTube Music Search</h1>
+
+    <form onsubmit="searchYouTube(); return false;">
+      <input type="text" id="searchQuery" placeholder="Search for a song..." />
+      <button type="submit">🔍 Search</button>
+    </form>
+
+    <iframe id="youtubePlayer" width="640" height="360" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <script src="https://www.youtube.com/iframe_api"></script>
   <script src="script.js"></script>
 </body>
 </html>
