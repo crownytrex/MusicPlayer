@@ -26,3 +26,9 @@ function pauseVideo() {
 function stopVideo() {
   player.stopVideo();
 }
+
+function searchYouTube() {
+  const query = document.getElementById('searchQuery').value;
+  const embedUrl = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(query)}`;
+  document.getElementById('youtubePlayer').src = embedUrl;
+}
