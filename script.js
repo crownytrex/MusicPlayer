@@ -1,34 +1,24 @@
-let player;
+const fileInput = document.getElementById('fileInput');
+const audioPlayer = document.getElementById('audioPlayer');
 
-function onYouTubeIframeAPIReady() {
-  player = new YT.Player('player', {
-    height: '360',
-    width: '640',
-    videoId: 'dQw4w9WgXcQ', // Replace with your desired YouTube video ID
-    events: {
-      onReady: onPlayerReady
-    }
-  });
+fileInput.addEventListener('change', function () {
+  const file = this.files[0];
+  if (file) {
+    const url = URL.createObjectURL(file);
+    audioPlayer.src = url;
+    audioPlayer.load();
+  }
+});
+
+function playAudio() {
+  audioPlayer.play();
 }
 
-function onPlayerReady(event) {
-  console.log("Player is ready");
+function pauseAudio() {
+  audioPlayer.pause();
 }
 
-function playVideo() {
-  player.playVideo();
-}
-
-function pauseVideo() {
-  player.pauseVideo();
-}
-
-function stopVideo() {
-  player.stopVideo();
-}
-
-function searchYouTube() {
-  const query = document.getElementById('searchQuery').value;
-  const embedUrl = `https://www.youtube.com/embed?listType=search&list=${encodeURIComponent(query)}`;
-  document.getElementById('youtubePlayer').src = embedUrl;
+function stopAudio() {
+  audioPlayer.pause();
+  audioPlayer.currentTime = 0;
 }
