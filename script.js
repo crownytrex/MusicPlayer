@@ -22,3 +22,8 @@ function stopAudio() {
   audioPlayer.pause();
   audioPlayer.currentTime = 0;
 }
+
+function toggleLoop() {
+  const loopCheckbox = document.getElementById('loopToggle');
+  audioPlayer.loop = loopCheckbox.checked;
+}
