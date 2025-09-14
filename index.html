@@ -3,28 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>YouTube Music Search</title>
+  <title>Local Music Player</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div class="player-container">
-    <h1>🎶 YouTube Music Search</h1>
+    <h1>🎶 Local Music Player</h1>
 
-    <form onsubmit="searchYouTube(); return false;">
-      <input type="text" id="searchQuery" placeholder="Search for a song..." />
-      <button type="submit">🔍 Search</button>
-    </form>
+    <input type="file" id="fileInput" accept="audio/*" />
+    <audio id="audioPlayer" controls></audio>
 
-    <iframe id="youtubePlayer" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+    <div class="controls">
+      <button onclick="playAudio()">▶️ Play</button>
+      <button onclick="pauseAudio()">⏸️ Pause</button>
+      <button onclick="stopAudio()">⏹️ Stop</button>
+    </div>
   </div>
 
   <script src="script.js"></script>
-  <form action="https://www.youtube.com/results" method="get" target="youtubeFrame">
-  <input type="text" name="search_query" placeholder="Search YouTube..." />
-  <button type="submit">Search</button>
-</form>
-
-<iframe name="youtubeFrame" width="640" height="360"></iframe>
-
 </body>
 </html>
